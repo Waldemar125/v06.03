@@ -1,0 +1,11 @@
+from itertools import product
+s = product('0123456789ABC', repeat=5)
+k = 0
+for x in s:
+    x = ''.join(x)
+    if x[0] != '0':
+        if x.count('7') == 1:
+            x = x.replace('A', '9').replace('B', '9').replace('C', '9')
+            if x.count('9') <= 3:
+                k += 1
+print(k)
