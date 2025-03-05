@@ -1,0 +1,13 @@
+s = [int(i) for i in open('17-411.txt').readlines()]
+print(s)
+m = max([i for i in s if i % 10 == 3])
+print(m)
+k, mn = 0, 10 ** 15
+for i in range(len(s) - 3):
+    a, b, c, d = s[i], s[i + 1], s[i + 2], s[i + 3]
+    h = a, b, c, d
+    if [i % 10 == 2 for i in h].count(True) % 2 != 0:
+        if [i < m for i in h].count(True) == 4:
+            k += 1
+            mn = min(mn, sum(h))
+print(k, mn)
