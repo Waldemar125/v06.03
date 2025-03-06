@@ -1,0 +1,13 @@
+f = open('26-155.txt').readlines()
+n = f.pop(0)
+s = [[int(j) for j in i.split()] for i in f]
+d = {}
+for i in range(len(s)):
+    a, b, c = s[i][0], s[i][1], s[i][2]
+    if (a, c) not in d:
+        d[(a, c)] = b
+    else:
+        d[(a, c)] += b
+for i in d:
+    if d[i] == 13429:
+        print(i, d[i])
